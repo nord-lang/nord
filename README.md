@@ -40,14 +40,31 @@ spawn worker(messages)
 make
 ```
 
+## Installation
+
+### From Release (Recommended)
+```bash
+curl -fsSL https://raw.githubusercontent.com/nord-lang/nord/main/install.sh | bash
+```
+
+Or download from [Releases](https://github.com/nord-lang/nord/releases).
+
+### Manual Build
+```bash
+git clone https://github.com/nord-lang/nord.git
+cd nord
+make
+sudo cp nordvm /usr/local/bin/
+```
+
 ## Usage
 
 ```bash
 # Run a Nord file
-./nordvm script.no
+nordvm script.no
 
 # Start REPL
-./nordvm -repl
+nordvm -repl
 ```
 
 ## Architecture
