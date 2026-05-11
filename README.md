@@ -1,15 +1,16 @@
-# Nord Language
+# Nord Language (.no)
 
 Compiled language for distributed systems and microservices.
 
-## Goals
-- No GC, use arena allocation for minimum latency
-- Actor model for distributed concurrency
-- Native reactive streams for data processing
-- Compile to native code via LLVM
+## Features
+- **No GC** - Arena allocation for zero-latency memory management
+- **Actors** - Native actor model with typed channels
+- **Streams** - Built-in reactive data processing
+- **Static types** - Compile-time safety with type inference
 
-## Example
+## Language Elements
 
+### Actors
 ```nord
 actor Counter {
     let mut count: i64 = 0
@@ -19,13 +20,25 @@ actor Counter {
         self.count
     }
 }
+```
 
+### Streams
+```nord
 stream numbers = range(1, 100)
     |> filter(|x| x % 2 == 0)
     |> map(|x| x * 2)
+```
+
+### Channels
+```nord
+chan<String> messages = chan::new()
+spawn worker(messages)
 ```
 
 ## Building
 ```
 make
 ```
+
+## Architecture
+- Lexer → Parser → AST → LLVM IR → Native binary

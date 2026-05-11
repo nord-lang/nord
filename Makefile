@@ -21,7 +21,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 clean:
 	rm -rf $(OBJDIR) $(TARGET)
 
-.PHONY: all dirs clean
+repl: $(TARGET)
+	./$(TARGET) -repl
+
+.PHONY: all dirs clean repl
 
 test: $(TARGET)
 	./$(TARGET) examples/streams.no
