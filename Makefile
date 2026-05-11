@@ -2,6 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -I./include
 SRCDIR = src
 OBJDIR = obj
+TESTDIR = tests
 
 SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
@@ -24,7 +25,12 @@ clean:
 repl: $(TARGET)
 	./$(TARGET) -repl
 
-.PHONY: all dirs clean repl
+test: $(TARGET) test_run
 
-test: $(TARGET)
-	./$(TARGET) examples/streams.no
+test_run: tests/test_lexer
+	./tests/test_lexer
+
+tests/test_lexer: $(SRCS) tests/test_lexer.c
+	$(CC) $(CFLAGS) -o $@ $^
+
+.PHONY: all dirs clean repl test test_run
