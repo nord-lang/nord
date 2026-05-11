@@ -1,0 +1,16 @@
+{
+  "name": "Nord Language",
+  "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "twxs.cmake"
+      ]
+    }
+  },
+  "postCreateCommand": "make"
+}
