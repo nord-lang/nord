@@ -5,7 +5,7 @@ OBJDIR = obj
 
 SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
-TARGET = nordc
+TARGET = nordvm
 
 all: dirs $(TARGET)
 

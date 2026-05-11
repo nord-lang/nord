@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void noreturn runtime_panic(const char* msg) {
+__attribute__((noreturn)) void runtime_panic(const char* msg) {
     fprintf(stderr, "PANIC: %s\n", msg);
     exit(1);
 }

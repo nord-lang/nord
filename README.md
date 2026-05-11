@@ -40,5 +40,15 @@ spawn worker(messages)
 make
 ```
 
+## Usage
+
+```bash
+# Run a Nord file
+./nordvm script.no
+
+# Start REPL
+./nordvm -repl
+```
+
 ## Architecture
 - Lexer → Parser → AST → LLVM IR → Native binary
